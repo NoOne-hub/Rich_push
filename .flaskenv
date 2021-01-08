@@ -1,0 +1,2 @@
+FLASK_APP=Rich_push.py
+FLASK_DEBUG=1

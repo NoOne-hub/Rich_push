@@ -1,0 +1,124 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 10000,
+      "rich_name": "user-0",
+      "rich_code": 255,
+      "rich_scope": 24,
+      "rich_time": 82830700,
+      "classify": "作家",
+      "rich_id": 57
+    },
+    {
+      "id": 10001,
+      "rich_name": "user-1",
+      "sex": "男",
+      "city": "城市-1",
+      "sign": "签名-1",
+      "rich_code": 884,
+      "rich_scope": 58,
+      "rich_time": 64928690,
+      "classify": "词人",
+      "rich_id": 27
+    },
+    {
+      "id": 10002,
+      "rich_name": "user-2",
+      "sex": "女",
+      "city": "城市-2",
+      "sign": "签名-2",
+      "rich_code": 650,
+      "rich_scope": 77,
+      "rich_time": 6298078,
+      "classify": "酱油",
+      "rich_id": 31
+    },
+    {
+      "id": 10003,
+      "rich_name": "user-3",
+      "sex": "女",
+      "city": "城市-3",
+      "sign": "签名-3",
+      "rich_code": 362,
+      "rich_scope": 157,
+      "rich_time": 37117017,
+      "classify": "诗人",
+      "rich_id": 68
+    },
+    {
+      "id": 10004,
+      "rich_name": "user-4",
+      "sex": "男",
+      "city": "城市-4",
+      "sign": "签名-4",
+      "rich_code": 807,
+      "rich_scope": 51,
+      "rich_time": 76263262,
+      "classify": "作家",
+      "rich_id": 6
+    },
+    {
+      "id": 10005,
+      "rich_name": "user-5",
+      "sex": "女",
+      "city": "城市-5",
+      "sign": "签名-5",
+      "rich_code": 173,
+      "rich_scope": 68,
+      "rich_time": 60344147,
+      "classify": "作家",
+      "rich_id": 87
+    },
+    {
+      "id": 10006,
+      "rich_name": "user-6",
+      "sex": "女",
+      "city": "城市-6",
+      "sign": "签名-6",
+      "rich_code": 982,
+      "rich_scope": 37,
+      "rich_time": 57768166,
+      "classify": "作家",
+      "rich_id": 34
+    },
+    {
+      "id": 10007,
+      "rich_name": "user-7",
+      "sex": "男",
+      "city": "城市-7",
+      "sign": "签名-7",
+      "rich_code": 727,
+      "rich_scope": 150,
+      "rich_time": 82030578,
+      "classify": "作家",
+      "rich_id": 28
+    },
+    {
+      "id": 10008,
+      "rich_name": "user-8",
+      "sex": "男",
+      "city": "城市-8",
+      "sign": "签名-8",
+      "rich_code": 951,
+      "rich_scope": 133,
+      "rich_time": 16503371,
+      "classify": "词人",
+      "rich_id": 14
+    },
+    {
+      "id": 10009,
+      "rich_name": "user-9",
+      "sex": "女",
+      "city": "城市-9",
+      "sign": "签名-9",
+      "rich_code": 484,
+      "rich_scope": 25,
+      "rich_time": 86801934,
+      "classify": "词人",
+      "rich_id": 75
+    }
+  ]
+}

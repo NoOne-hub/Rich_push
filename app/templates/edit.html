@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form" lay-filter="edit_table">
+    <div class="layui-form-item" style="display:none">
+        <label class="layui-form-label">基金名称</label>
+        <div class="layui-input-block">
+            <input type="text" hidden name="id" placeholder="请输入基金名" value="" class="layui-input">
+            <tip>填写监控基金的名称。</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <input type="text" name="rich_name" lay-verify="required"placeholder="请输入备注" value="" class="layui-input">
+            <tip>方便查找</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">基金号码</label>
+        <div class="layui-input-block">
+            <input type="text" name="rich_id" lay-verify="required" lay-reqtext="基金号码不能为空" placeholder="请输入基金号码"
+                   value="" class="layui-input">
+            <tip>填写监控基金的号码。以逗号分隔,可以填写多个</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">涨跌幅度</label>
+        <div class="layui-input-block">
+            <input type="text" name="rich_scope" placeholder="请输入涨跌幅度(ex: -1)" value="" class="layui-input">
+            <tip>填写监控基金的通知幅度，涨幅: 1 意思涨跌1%</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">推送code</label>
+        <div class="layui-input-block">
+            <input type="text" name="rich_code" placeholder="请输入推送code" value="" class="layui-input">
+            <tip>填写server酱的推送码</tip>
+        </div>
+    </div>
+    <!--<div class="layui-form-item">
+        <label class="layui-form-label">发送时间点</label>
+        <div class="layui-input-block">
+            <input type="text" name="rich_time" placeholder="请输入发送时间点" value="" class="layui-input">
+            <tip>填写通知时间</tip>
+        </div>
+    </div>-->
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="saveBtn">确认保存</button>
+        </div>
+    </div>
+</div>
+<script src="/static/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            //解决中文乱码
+            return decodeURI(r[2]);
+        }
+        return null;
+    }
+
+    layui.use(['form'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            $ = layui.$;
+        form.val("edit_table", {
+            "rich_code": GetQueryString("rich_code"),
+            "rich_scope": GetQueryString("rich_scope"),
+            "rich_name": GetQueryString("rich_name"),
+            "rich_id": GetQueryString("rich_id"),
+            "id": GetQueryString("id")
+        });
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            $.ajax({
+                type: "POST",
+                url: '/api/edit',
+                data: JSON.stringify(data.field),
+                traditional: true,
+                success: function (data) {
+                    if (data.code == 1) {
+                        layer.msg('修改成功！', {icon: 1, time: 2000, shade: 0.2});
+                        window.parent.location.reload();
+                        var iframeIndex = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(iframeIndex);
+                    } else {
+                        layer.msg(data.message, {icon: 2, time: 3000, shade: 0.2});
+                    }
+                }
+            })
+            /*
+            var index = layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            }, function () {
+
+                // 关闭弹出层
+                layer.close(index);
+
+                var iframeIndex = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(iframeIndex);
+
+            });
+            */
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

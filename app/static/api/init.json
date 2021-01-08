@@ -1,0 +1,35 @@
+{
+  "clearInfo": {
+    "clearUrl": "api/clear.json"
+  },
+  "homeInfo": {
+    "title": "基金概况",
+    "icon": "fa fa-home",
+    "href": "welcome?t=3"
+  },
+  "logoInfo": {
+    "title": "LAYUI MINI",
+    "image": "/static/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": {
+    "currency": {
+      "title": "基金推送管理",
+      "icon": "fa fa-address-book",
+      "child": [
+        {
+          "title": "基金概况",
+          "href": "welcome?t=3",
+          "icon": "fa fa-home",
+          "target": "_self"
+        },
+        {
+          "title": "监控修改",
+          "href": "table",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    }
+  }
+}
